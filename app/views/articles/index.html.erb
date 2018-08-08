@@ -1,0 +1,23 @@
+
+<div style="margin: 10px;">
+  <h2><%= link_to("Create new article", new_article_path) %></h2>
+</div>
+<% @articles.each do |article| %>
+  <div style="background-color: gray;margin: 10px; padding: 10px; border: 2px solid black; border-radius: 5px;">
+    <hr>
+    <h2 style="color: white;"><%= article.title %></h2>
+    <p style="color: white;"><%= article.content.length > 30 ? article.content.first(30) + "..." :  article.content  %></p>
+
+    <hr>
+
+
+    <%= button_to "See details", article_path(article),  form: {style: 'display:inline-block;'} ,
+      :class => "btn btn-success", :method => :get%>
+    <%= button_to "Update article", edit_article_path(article), form: {style: 'display:inline-block;'},
+      :class => "btn btn-info", :method => :get%>
+    <%= button_to "Remove article", article_path(article), form: {style: 'display:inline-block;'},
+      :class => "btn btn-danger", :method => :delete, data: {confirm: "Are you sure?"}%>
+
+  </div>
+<% end %>
+

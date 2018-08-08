@@ -1,0 +1,17 @@
+  <div  style="background-color: gray;margin: 10px; padding: 10px; border: 1px solid black;"">
+    <hr>
+    <h2 style="color: white;"><%= @article.title %></h2>
+    <p style="color: white;"><%= @article.content %></p>
+
+    <hr>
+  </div>
+  <div class="row" style="margin: 10px;">
+    <%= button_to "See all", articles_path,  form: {style: 'display:inline-block;'} ,
+      :class => "btn btn-success", :method => :get%>
+    <%= button_to "Update article", edit_article_path(@article), form: {style: 'display:inline-block;'},
+      :class => "btn btn-info", :method => :get%>
+    <%= button_to "Remove article", article_path(@article), form: {style: 'display:inline-block;'},
+      :class => "btn btn-danger", :method => :delete, data: {confirm: "Are you sure?"}%>
+  </div>
+
+
